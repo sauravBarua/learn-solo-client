@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../components/Home/Home";
+import Login from "../components/Login/Login";
 import Programmes from "../components/Programmes/programmes";
 import Main from "../layout/Main";
 
@@ -23,6 +24,10 @@ export const routes = createBrowserRouter([
           fetch(
             `https://lerning-platform-server-sauravbarua.vercel.app/programmings/${params.id}`
           ),
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
       },
     ],
   },

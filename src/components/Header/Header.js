@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
   return (
     <Navbar
       style={{ marginBottom: "20px" }}
@@ -60,7 +63,7 @@ const Header = () => {
                 marginLeft: "5px",
               }}
             >
-              More
+              {user?.displayName}
             </Link>
             <Link
               style={{
@@ -68,6 +71,7 @@ const Header = () => {
                 color: "black",
                 marginLeft: "5px",
               }}
+              to="/login"
             >
               Login
             </Link>
