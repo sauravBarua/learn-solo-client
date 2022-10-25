@@ -11,6 +11,10 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () =>
+          fetch(
+            "https://lerning-platform-server-sauravbarua.vercel.app/programmings/"
+          ),
       },
       {
         path: "/programmings/:id",
