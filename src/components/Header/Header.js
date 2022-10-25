@@ -6,7 +6,7 @@ const Header = () => {
       <div className="container pt-5 pb-5">
         <nav className="navbar navbar-expand-lg">
           <a className="navbar-brand mb-lg-0 fs-2 fw-bold" href="#">
-            Edu Academy
+            Learn solo
           </a>
           <button
             className="navbar-toggler"
