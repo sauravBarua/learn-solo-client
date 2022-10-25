@@ -15,11 +15,22 @@ const LeftSideNav = () => {
   }, []);
   return (
     <div>
+      <p>Courses</p>
       <div>
         {programmes.map((programme) => (
           <p key={programme._id}>
-            <Link to={`/programmings/${programme._id}`}>
-              {programme.title}{" "}
+            <Link
+              style={{
+                padding: "7px",
+                marginTop: "10px",
+                textDecoration: "none",
+                color: "black",
+                border: "1px solid black",
+                borderRadius: "5px",
+              }}
+              to={`/programmings/${programme._id}`}
+            >
+              {programme.title}
             </Link>
           </p>
         ))}

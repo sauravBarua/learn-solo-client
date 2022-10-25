@@ -10,7 +10,6 @@ const HomeCard = ({ programme }) => {
       <Card.Img variant="top" src={img} />
       <Card.Body>
         <Card.Title> {title} </Card.Title>
-
         <Link to={`/programmings/${_id}`}>
           <Button variant="primary">Details </Button>
         </Link>
