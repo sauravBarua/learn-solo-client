@@ -5,6 +5,9 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import { FaUser } from "react-icons/fa";
+import { Image } from "react-bootstrap";
+
 
 const Header = () => {
   const { user } = useContext(AuthContext);
@@ -56,7 +59,7 @@ const Header = () => {
             >
               More
             </Link>
-            <Link
+            {/* <Link
               style={{
                 textDecoration: "none",
                 color: "black",
@@ -64,7 +67,13 @@ const Header = () => {
               }}
             >
               {user?.displayName}
-            </Link>
+            </Link> */}
+            <Nav.Link> {user?.dispmayName} </Nav.Link>
+            <Nav.Link> {
+              user.photoURL ?
+              <Image style = {{height: '25px'}} roundedCircle src = {user.photoURL}></Image>
+              : <FaUser></FaUser>
+              } </Nav.Link>
             <Link
               style={{
                 textDecoration: "none",
