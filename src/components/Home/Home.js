@@ -7,7 +7,6 @@ const Home = () => {
 
   return (
     <div>
-      <h1> Home: {allprogrammes.length} </h1>
       {allprogrammes.map((programme) => (
         <HomeCard key={programme._id} programme={programme}></HomeCard>
       ))}
