@@ -4,7 +4,7 @@ import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import Form from "react-bootstrap/Form";
 import { Button, ButtonGroup } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Login = () => {
@@ -67,7 +67,7 @@ const Login = () => {
         </Button>
         <Form.Text className="text-danger">{error}</Form.Text>
       </Form>
-
+      <Link to="/register">Register</Link>
       <ButtonGroup vertical>
         <Button
           onClick={handleGoogleSignIn}

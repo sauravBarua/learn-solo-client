@@ -97,7 +97,6 @@ const Header = () => {
                   <Link to="/login">
                     <Button variant="light">Login</Button>
                   </Link>
-                  <Link to="/register">Register</Link>
                 </>
               )}
             </Nav.Link>
