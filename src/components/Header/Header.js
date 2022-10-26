@@ -6,7 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import { FaUser } from "react-icons/fa";
-import { Image } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -37,15 +37,13 @@ const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto"></Nav>
           <Nav>
-            <Link
-              style={{
-                textDecoration: "none",
-                color: "black",
-              }}
-              to="/"
-            >
-              Courses
-            </Link>
+            <Nav.Link>
+              <Link to="/">
+                {" "}
+                <Button variant="light">Courses</Button>
+              </Link>
+            </Nav.Link>
+
             <Link
               style={{
                 textDecoration: "none",
@@ -89,11 +87,16 @@ const Header = () => {
               {user?.uid ? (
                 <>
                   <span>{user?.dispmayName} </span>
-                  <Link onClick={handleLogOut}>Logout</Link>
+                  {/* <Link onClick={handleLogOut}>Logout</Link> */}
+                  <Button variant="light" onClick={handleLogOut}>
+                    Logout
+                  </Button>
                 </>
               ) : (
                 <>
-                  <Link to="/login">Login</Link>
+                  <Link to="/login">
+                    <Button variant="light">Login</Button>
+                  </Link>
                   <Link to="/register">Register</Link>
                 </>
               )}
