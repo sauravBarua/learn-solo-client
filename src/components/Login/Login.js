@@ -4,9 +4,13 @@ import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import Form from "react-bootstrap/Form";
 import { Button, ButtonGroup } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Login = () => {
   const { providerLogin, signIn } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -29,8 +33,13 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
+        setError("");
+        navigate("/");
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      });
   };
   return (
     <div>
@@ -56,9 +65,7 @@ const Login = () => {
         <Button variant="primary" type="submit">
           Submit
         </Button>
-        <Form.Text className="text-danger">
-          We'll never share your email with anyone else.
-        </Form.Text>
+        <Form.Text className="text-danger">{error}</Form.Text>
       </Form>
 
       <ButtonGroup vertical>
