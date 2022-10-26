@@ -2,11 +2,17 @@ import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { Link, useLoaderData } from "react-router-dom";
 
+
 const Programmes = () => {
   const programmes = useLoaderData();
   return (
     <Card>
-      <Card.Header>{programmes.title}</Card.Header>
+      <Card.Header>
+        <span>
+        {programmes.title}
+        </span>
+       <span className=""> <Button variant="outline-dark">Download pdf</Button></span>
+      </Card.Header>
       <Card.Img variant="top" style={{ width: "5rem" }} src={programmes.img} />
       <Card.Body>
         <Card.Text>{programmes.desc}</Card.Text>
