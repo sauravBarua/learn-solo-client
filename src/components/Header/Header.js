@@ -8,9 +8,14 @@ import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import { FaUser } from "react-icons/fa";
 import { Image } from "react-bootstrap";
 
-
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
   return (
     <Navbar
       style={{ marginBottom: "20px" }}
@@ -68,13 +73,33 @@ const Header = () => {
             >
               {user?.displayName}
             </Link> */}
-            <Nav.Link> {user?.dispmayName} </Nav.Link>
-            <Nav.Link> {
-              user.photoURL ?
-              <Image style = {{height: '25px'}} roundedCircle src = {user.photoURL}></Image>
-              : <FaUser></FaUser>
-              } </Nav.Link>
-            <Link
+            <Nav.Link>
+              {" "}
+              {user?.photoURL ? (
+                <Image
+                  style={{ height: "25px" }}
+                  roundedCircle
+                  src={user.photoURL}
+                ></Image>
+              ) : (
+                <FaUser></FaUser>
+              )}{" "}
+            </Nav.Link>
+            <Nav.Link>
+              {user?.uid ? (
+                <>
+                  <span>{user?.dispmayName} </span>
+                  <Link onClick={handleLogOut}>Logout</Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/login">Login</Link>
+                  <Link to="/register">Register</Link>
+                </>
+              )}
+            </Nav.Link>
+
+            {/* <Link
               style={{
                 textDecoration: "none",
                 color: "black",
@@ -83,7 +108,7 @@ const Header = () => {
               to="/login"
             >
               Login
-            </Link>
+            </Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>
