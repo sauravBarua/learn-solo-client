@@ -16,6 +16,7 @@ const Header = () => {
       .then(() => {})
       .catch((error) => console.error(error));
   };
+
   return (
     <Navbar
       style={{ marginBottom: "20px" }}
@@ -31,7 +32,9 @@ const Header = () => {
           alt=""
         />
         <Link style={{ textDecoration: "none", marginLeft: "7px" }} to="/">
-          <Navbar.Brand>Learn Solo</Navbar.Brand>
+          <Navbar.Brand>
+            <Button variant="light">Learn Solo</Button>
+          </Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -40,44 +43,35 @@ const Header = () => {
             <Nav.Link>
               <Link to="/">
                 {" "}
+                <Button variant="light">Home</Button>
+              </Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/">
+                {" "}
                 <Button variant="light">Courses</Button>
               </Link>
             </Nav.Link>
-
-            <Link
-              style={{
-                textDecoration: "none",
-                color: "black",
-                marginLeft: "5px",
-              }}
-            >
-              More
-            </Link>
-            <Link
-              style={{
-                textDecoration: "none",
-                color: "black",
-                marginLeft: "5px",
-              }}
-            >
-              More
-            </Link>
-            {/* <Link
-              style={{
-                textDecoration: "none",
-                color: "black",
-                marginLeft: "5px",
-              }}
-            >
-              {user?.displayName}
-            </Link> */}
+            <Nav.Link>
+              <Link to="/">
+                {" "}
+                <Button variant="light">FAQ</Button>
+              </Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/blog">
+                {" "}
+                <Button variant="light">Blog</Button>
+              </Link>
+            </Nav.Link>
             <Nav.Link>
               {" "}
               {user?.photoURL ? (
                 <Image
-                  style={{ height: "25px" }}
+                  style={{ height: "30px" }}
                   roundedCircle
                   src={user.photoURL}
+                  title={user?.displayName}
                 ></Image>
               ) : (
                 <FaUser></FaUser>
@@ -100,17 +94,7 @@ const Header = () => {
                 </>
               )}
             </Nav.Link>
-
-            {/* <Link
-              style={{
-                textDecoration: "none",
-                color: "black",
-                marginLeft: "5px",
-              }}
-              to="/login"
-            >
-              Login
-            </Link> */}
+            <Button variant="light">Dark mode</Button>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -72,32 +72,38 @@ const Login = () => {
             required
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="outline-dark" type="submit">
           Submit
         </Button>
         <Form.Text className="text-danger">{error}</Form.Text>
       </Form>
-      <Link to="/register">Register</Link>
-      <ButtonGroup vertical>
+      <ButtonGroup vertical className="">
         <Button
           onClick={handleGoogleSignIn}
-          className="mb-2"
+          // className="mb-2"
           variant="outline-dark"
         >
           <FaGithub className="m-2"></FaGithub>
           Login With Google
         </Button>
       </ButtonGroup>
-      <br />
       <ButtonGroup vertical>
         <Button
           onClick={handleGithubSignIn}
-          className="mb-2"
+          // className="mb-2"
           variant="outline-dark"
         >
           <FaGoogle className="m-2"></FaGoogle>
           Login With Github
         </Button>
+      </ButtonGroup>
+      <br />
+      <ButtonGroup vertical>
+        <Link to="/register">
+          <Button variant="outline-dark" type="submit">
+            Register
+          </Button>
+        </Link>
       </ButtonGroup>
     </div>
   );

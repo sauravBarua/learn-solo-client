@@ -5,14 +5,13 @@ import { Link, useLoaderData } from "react-router-dom";
 const Programmes = () => {
   const programmes = useLoaderData();
   return (
-    <Card style={{ width: "24rem" }}>
-      <Card.Img variant="top" src={programmes.img} />
+    <Card>
+      <Card.Header>{programmes.title}</Card.Header>
+      <Card.Img variant="top" style={{ width: "5rem" }} src={programmes.img} />
       <Card.Body>
-        <Card.Title> {programmes.title} </Card.Title>
         <Card.Text>{programmes.desc}</Card.Text>
         <Link to="/checkout">
-          {" "}
-          <Button variant="primary">Checkout</Button>
+          <Button variant="outline-dark">Get Premium Access</Button>
         </Link>
       </Card.Body>
     </Card>
