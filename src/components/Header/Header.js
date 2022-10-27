@@ -87,7 +87,6 @@ const Header = () => {
               {user?.uid ? (
                 <>
                   <span>{user?.dispmayName} </span>
-                  {/* <Link onClick={handleLogOut}>Logout</Link> */}
                   <Button variant="light" onClick={handleLogOut}>
                     Logout
                   </Button>
