@@ -65,17 +65,16 @@ const Header = () => {
               </Link>
             </Nav.Link>
             <Nav.Link>
-              {" "}
               {user?.photoURL ? (
                 <Image
                   style={{ height: "30px" }}
                   roundedCircle
-                  src={user.photoURL}
+                  src={user?.photoURL}
                   title={user?.displayName}
                 ></Image>
               ) : (
                 <FaUser></FaUser>
-              )}{" "}
+              )}
             </Nav.Link>
             <Nav.Link>
               {user?.uid ? (

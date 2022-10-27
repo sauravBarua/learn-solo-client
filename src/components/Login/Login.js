@@ -1,16 +1,18 @@
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import Form from "react-bootstrap/Form";
 import { Button, ButtonGroup } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Login = () => {
   const { providerLogin, signIn } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
@@ -38,19 +40,28 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+
     signIn(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         form.reset();
         setError("");
-        navigate("/");
+        navigate(from, { replace: true });
+        // if (user.emailVerified) {
+        //   navigate(from, { replace: true });
+        // } else {
+        //   console.log(
+        //     "Your email is not verified. Please verify your email address."
+        //   );
+        // }
       })
       .catch((error) => {
         console.error(error);
         setError(error.message);
       });
   };
+
   return (
     <div>
       <Form onSubmit={handleSubmit}>

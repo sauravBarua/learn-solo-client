@@ -1,3 +1,4 @@
+import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../components/Blog/Blog";
 import Checkout from "../components/Checkout/Checkout";
@@ -38,16 +39,16 @@ export const routes = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/checkout",
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/checkout/",
         element: (
           <PrivateRoute>
             <Checkout></Checkout>
           </PrivateRoute>
         ),
-      },
-      {
-        path: "/blog",
-        element: <Blog></Blog>,
       },
     ],
   },
